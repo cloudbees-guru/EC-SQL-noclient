@@ -19,6 +19,7 @@ spec:
     tty: true
   - name: flowpdk
     image: nexus.cloudbees.guru:5556/flowpdk:edge
+    imagePullPolicy: Always
     command:
     - cat
     tty: true
