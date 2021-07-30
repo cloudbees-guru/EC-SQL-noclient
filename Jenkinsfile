@@ -50,7 +50,7 @@ spec:
     stage('Flowpdk: build the plugin') {
       steps {
           container('flowpdk') {
-            sh 'flowpdk build'
+            sh 'pdk build'
           }
       }
     }
