@@ -1,0 +1,8 @@
+.idea/
+*.iml
+agent/deps/libs/
+!agent/deps/libs/flowpdf-groovy-lib-*.jar
+.gradle/
+.assets/
+build/
+.history/

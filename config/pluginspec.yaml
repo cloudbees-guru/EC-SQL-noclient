@@ -1,0 +1,137 @@
+pluginInfo:
+  # This is default sample specification
+  # Feel free to change it
+  # Call pdk showdoc pluginspec to see the list of available fields and their description
+  pluginName: 'EC-SQL-noclient'
+  version: '1.0.0'
+  description: 'Plugin to execute SQL queries on a database, without SQL client. Connection is done via JDBC'
+  author: 'Jean-Philippe Briend'
+  supportUrl: 'none'
+  category: 'Database'
+  shell: 'ec-groovy'
+
+# Plugin configuration description
+configuration:
+  # This is a shell used for checking connection
+  shell: 'ec-groovy'
+  # A script for checking connection will be generated
+  checkConnection: 'true'
+  # A set of fields will be added to process debug level in the configuration
+  hasDebugLevel: true
+  parameters:
+
+procedures:
+-
+  name: 'execute Query'
+  description: 'Execute a single SQL query towards a database'
+  hasConfig: false
+  parameters:
+  -
+    name: database
+    documentation: Type of Database
+    required: true
+    type: select
+    label: Database Type
+    options:
+      - name: Oracle
+        value: ORACLE
+      - name: MySQL
+        value: MYSQL
+      - name: Microsoft SQL Server
+        value: MSSQL
+      - name: PostgreSQL Server
+        value: POSTGRESQL
+  -
+    name: server
+    documentation: IP or hostname of the database server
+    required: true
+    type: entry
+    label: Database server
+  -
+    name: port
+    documentation: Port of the database server
+    required: true
+    type: entry
+    label: Database port
+  -
+    name: credential
+    documentation: Credentials to connect to the database
+    required: true
+    type: credential
+    label: Database credentials
+  -
+    name: databaseName
+    documentation: Name of the database
+    required: true
+    type: entry
+    label: Database name
+  -
+    name: properties
+    documentation: (Optional) Properties passed to the connection string
+    required: false
+    type: entry
+    label: Database Properties
+  -
+    name: sql_query
+    documentation: SQL query to execute
+    required: true
+    type: entry
+    label: SQL query
+  outputParameters:
+-
+  name: 'execute Queries'
+  description: 'Execute multiple SQL queries towards a database'
+  hasConfig: false
+  parameters:
+    -
+      name: database
+      documentation: Type of Database
+      required: true
+      type: select
+      label: Database Type
+      options:
+        - name: Oracle
+          value: ORACLE
+        - name: MySQL
+          value: MYSQL
+        - name: Microsoft SQL Server
+          value: MSSQL
+        - name: PostgreSQL Server
+          value: POSTGRESQL
+    -
+      name: server
+      documentation: IP or hostname of the database server
+      required: true
+      type: entry
+      label: Database server
+    -
+      name: port
+      documentation: Port of the database server
+      required: true
+      type: entry
+      label: Database port
+    -
+      name: credential
+      documentation: Credentials to connect to the database
+      required: true
+      type: credential
+      label: Database credentials
+    -
+      name: databaseName
+      documentation: Name of the database
+      required: true
+      type: entry
+      label: Database name
+    -
+      name: properties
+      documentation: (Optional) Properties passed to the connection string
+      required: false
+      type: entry
+      label: Database Properties
+    -
+      name: sql_queries
+      documentation: SQL queries to execute
+      required: true
+      type: textarea
+      label: SQL query
+  outputParameters:
