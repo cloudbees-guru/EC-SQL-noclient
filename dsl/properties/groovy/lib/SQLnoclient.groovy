@@ -68,7 +68,7 @@ class SQLnoclient extends FlowPlugin {
                 ((Credential)p.asMap.get('credential')).getSecretValue()
         )
         Connection connection = databaseConnection.connect(false)
-        QueryExecutor queryExecutor = new QueryExecutor(connection)
+        QueryExecutor queryExecutor = new QueryExecutor(databaseConnection)
 
         log.info "Executing query:"
         queryExecutor.executeQuery(p.asMap.get('sql_query').toString(), false)
@@ -107,7 +107,7 @@ class SQLnoclient extends FlowPlugin {
                 ((Credential)p.asMap.get('credential')).getSecretValue()
         )
         Connection connection = databaseConnection.connect(false)
-        QueryExecutor queryExecutor = new QueryExecutor(connection)
+        QueryExecutor queryExecutor = new QueryExecutor(databaseConnection)
 
         log.info "Executing query:"
         queryExecutor.executeQueries(p.asMap.get('sql_queries').toString(), false)
