@@ -50,7 +50,7 @@ spec:
     stage('Flowpdk: build the plugin') {
       steps {
           container('flowpdk') {
-            sh 'pdk build --buildNumber=$(date +"%Y%m%d%H%M%S")'
+            sh '/pdk/bin/pdk build --buildNumber=$(date +"%Y%m%d%H%M%S")'
           }
       }
     }
